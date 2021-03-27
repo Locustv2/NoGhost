@@ -4,98 +4,52 @@ Haste (for unlagged)
 Hypothermia (for his Code3Arena website and random e-mail help)
 CornCobMan (for dodging and double jumping)
 Q3 Advanced (Q3AS) (for reffing ideas and implementation)
-Corkscrew (for grappling ideas and physics)
-Juhox (for lens flares and ideas)
+
 
 
 The following players have contributed either directly or indirectly to the making/improvement of this mod: (listed alphabetically)
+666devil
 ^Darkness
-Bazeman
 Boris
-Brutal
 bug
 Burb
-Camel
-Chr0n1c
-comprichard
 dante!
-euthanasia
-FraQQ
-FreDDy
 free fallin
-FrOsT
-Futter  mein Ego
-Gangularis
-Grandude
-GrEaTvIk
-Gremlin
-hater
-HellSpawn
 HyperActive
 iCeMaN
 Ino
 Jackal
-JoE
 JPost
-kenny
-Key2!
 kickinjunk
 KillaLou
 killer[p!G]
 Killer Eskimo
-kittyl0af
 kultnacht
 LaggyNewbie
 LanaLang
-Lastrite (sco)
-Mad^Professor
 Major_Glory
 Makaveli Da Don
 Manes
-Meganoob
 melon
-migs
-miss~homicidal~
 M.O.B.
-moRtem
 Northerngal
 Nusra
 Pain_Bringer
-Phatboy
 p0k
 pontiff of pain
-PoTCHa
-PumPK1N
 Quension
-Rayden
-RequieM
 Rimrocker
 SafetyMonkey
 Scrote
 Seductress
-Semia_Puta
 SeReNa
-seven
-Shadovv
 Shooter
-SilentStrike
-Skapocalypse
 slackX
-speud
-sweetness^0+
 tampon
 Temujin
 Texran
-tRIKUSfromBRUSSELS
-Tzeentch
-Vardinio
 Velvet
-Voodoo
-Weirdlittleeye
 Zombino
 
 
 If you feel you should be on this list (and you currently aren't) or I have misspelled your name (or misrepresented you somehow), please feel free to send me an e-mail.
-
-
-I want to truthfully thank you all.  This is your mod.

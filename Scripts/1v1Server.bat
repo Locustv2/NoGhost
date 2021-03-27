@@ -1,1 +1,1 @@
-Quake3.exe +set com_hunkmegs 56 +set dedicated 2 +set fs_Game NoGhost +exec 1v1tourney.cfg
+Quake3.exe +set com_hunkmegs 20 +set dedicated 2 +set fs_Game NoGhost +exec 1v1tourney.cfg

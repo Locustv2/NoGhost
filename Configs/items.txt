@@ -39,12 +39,3 @@ item_flight
 
 team_CTF_redflag
 team_CTF_blueflag
-
-team_CTF_redplayer
-team_CTF_blueplayer
-team_CTF_redspawn
-team_CTF_bluespawn
-
-info_player_intermission
-info_player_deathmatch
-info_player_start
