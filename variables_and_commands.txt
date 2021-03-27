@@ -1,0 +1,552 @@
+Note: if this page looks funny, disable word wrapping
+
+
+new/improved server variables...
+
+g_friendlyFire (default=1)				<--	Set this to 0 to disable friendly fire (you can't kill teammates)
+								Set this to 1 to enable friendly fire
+								Set this to 2 to enable friendly fire and make the killer freeze instead of the victim (the killer will only be frozen after repeated team kills) (if g_friendlyfire > 1 then you must also have g_gameMod set to 1)
+								Set this to 3 to enable friendly fire and make the victim temporarily frozen (the victim will only be frozen after repeated team kills) (if g_friendlyfire > 1 then you must also have g_gameMod set to 1)
+g_friendlyFire_accidents (default=0)			<--	The number of accidental team kills you can do before the appropriate punishment kicks in (only applicable in g_friendlyFire > 1 and g_gameMod == 1).  Setting this to 0 means a team kill is punished instantly and no leeway is given to the player for accidental kills.  Set this to greater than 0 to create a 'buffer' to allow people to perform a number of accidental team kills before they are punished.
+g_inactivity_warnDisplayTime (default=1)		<--	Time, in milliseconds, an inactive player will see the warning message about how they are about to be kicked
+g_spectatorInactivity (default=0)			<--	Time in seconds a spectator can be inactive before being kicked
+g_spectatorInactivity_warnDisplayTime (default=1)	<--	Time, in milliseconds, an inactive spectator will see the warning message about how they are about to be kicked
+g_weaponTeamRespawn (default=30)			<--	The time in seconds weapons will respawn in a team game (this is the team version of g_weaponrespawn)
+g_delag_smoothClients (default=0)			<--	Turns on the server-sided client smoothing
+								0 = Off (default)
+								1 = Attempt the server-side client movement smoothing (useful for correcting skipping players).  May also be useful to tweak sv_fps to improve smoothness.  If you have g_delag set to 2, it is recommended you have this on.  This is only active if you ave g_delag set to 2 or higher.
+g_delag (default=0)					<--	Integer to enable delag functionality
+								0 = Off (default)
+								1 = turns on Delag/Unlagged version 1
+								2 = turns on Delag/Unlagged version 2.01.
+								3 = turns on Delag/Unlagged version 2.01 OSP style.
+								4 = turns on Delag/Unlagged version 2.01 with only server side 50ms lag reduction.
+								5 = same as 2, but doesn't give the client the ability to not use delag if they are using the NoGhost client side mod.
+g_rocketEffects (default=0)				<--	Turns on the rocket's special abilities:
+								0 = Off (default)
+								1 = Homing rockets (they will auto-seek the targets)
+								2 = Guided rockets (you point where you want them to go)
+g_rocketEffects_targetCone (default=0.90)		<--	Size of the targeting cone ahead of the rocket.  The closer this value is to 1, the narrower the cone (will only target players directly in front of the rocket).  The closer this value is to 0, the wider the cone (will target the first player it considers to be a target).
+g_rocketEffects_turnRadius (default=1.25)		<--	The turning radius of a rocket.  Make this value small to make the rocket turn quickly (and hard to dodge).  Make it large to make the rocket turn slowly (easy to dodge).
+g_rocketEffects_targetDist (default=768)		<--	Maximum distance ahead of the rocket a player can be to be considered as a target
+g_rocketEffects_keepTarget (default=0)			<--	For use with g_rocketEffects == 1.  This will cause rockets homing in a person to never lose track of the person; this will make the rockets much deadlier and difficult to dodge.
+g_rocketEffects_targetTurret (default=0)		<--	Boolean to enable homing rockets to target and home in on turrets.  (See g_turret and g_turret_amount to turn on turrets)
+g_rocketEffects_targetRocket (default=0)		<--	Boolean to enable homing rockets to target and home in on other homing rockets.  (See g_rocketeffects to turn on homing rockets)
+g_rocketEffects_deadOwnerProtection (default=0)		<--	Boolean to cause homing/guided rockets to discontinue homing/guiding if the owner is dead.
+g_vulnerableRockets (default=0)				<--	Boolean to make rockets vulnerable to being shot down.
+g_vulnerableRockets_health (default=5)			<--	The health of a vulnerable rocket.
+g_bannedMessage	(default="Banned")			<--	Message to show to clients who have been banned indefinitely.
+g_bannedMessage_finite (default="Temporarily Banned")	<--	Message to show to clients who have been banned temporarily.
+g_speed_rocket (default=900)				<--	The speed of the rocket projectile.
+g_speed_plasma (default=2000)				<--	The speed of the plasma projectile.
+g_speed_bfg (default=2000)				<--	The speed of the bfg projectile.
+g_speed_grenade (default=700)				<--	The speed of a grenade.
+g_speed_grapple (default=800)				<--	The speed of the grappling hook when you shoot it out.
+g_speed_grapple_pull (default=800)			<--	The speed of the grappling hook when you are being pulled.
+g_victoryPad (default=0)				<--	Boolean to show the victory pad during the intermission.  This will also attempt to play the nightmare sound during the intermission.
+g_reload_rocket (default=400)				<--	The reload time of the rocket launcher in milliseconds
+g_reload_plasma (default=100)				<--	The reload time of the plasma gun in milliseconds
+g_reload_bfg (default=200)				<--	The reload time of the bfg in milliseconds
+g_reload_grapple (default=400)				<--	The reload time of the grappling hook in milliseconds
+g_reload_grenade (default=800)				<--	The reload time of the grenade launcher in milliseconds
+g_reload_machinegun (default=100)			<--	The reload time of the machinegun in milliseconds
+g_reload_shotgun (default=1000)				<--	The reload time of the shotgun in milliseconds
+g_reload_lightning (default=50)				<--	The reload time of the lightning gun in milliseconds
+g_reload_gauntlet (default=400)				<--	The reload time of the gauntlet in milliseconds
+g_reload_railgun (default=1500)				<--	The reload time of the railgun in milliseconds
+g_ammo_rocket (default=10)				<--	The amount of rocket launcher ammo you start with.
+g_ammo_plasma (default=50)				<--	The amount of plasma gun ammo you start with.
+g_ammo_bfg (default=20)					<--	The amount of BFG ammo you start with.
+g_ammo_grenade (default=10)				<--	The number of grenades you start with.
+g_ammo_machinegun (default=100)				<--	The amount of machinegun ammo you start with.
+g_ammo_machinegun_team (default=50)			<--	The amount of machinegun ammo you start within team games.
+g_ammo_shotgun (default=10)				<--	The amount of shotgun ammo you start with.
+g_ammo_lightning (default=100)				<--	The amount of lightning gun ammo you start with.
+g_ammo_railgun (default=10)				<--	The amount of railgun ammo you start with.
+g_ammo_pickupMaximum (default=200)			<--	The maximum amount of ammo you can carry.  If you have this much ammo you will be unable to pick up any more.
+g_startBanner (default=0)				<--	Amount of time, in milliseconds, to show a text banner when a person joins the game.  Setting this to 0 will cause the text banners to not be shown.  Setting this less than 3000 will cause the text banner to be shown for the default time of 3 seconds (3000 milliseconds).
+g_startBanner_text1 (default="")			<--	The first line of text for the start banner.  banners can be colored using ^'s.  you can leave this variable blank if you don't want to use this line of text.
+g_startBanner_text2 (default="")			<--	The second line of text for the start banner.  banners can be colored using ^'s.  you can leave this variable blank if you don't want to use this line of text.
+g_startBanner_text3 (default="")			<--	The third line of text for the start banner.  banners can be colored using ^'s.  you can leave this variable blank if you don't want to use this line of text.
+g_startBanner_text4 (default="")			<--	The fourth line of text for the start banner.  banners can be colored using ^'s.  you can leave this variable blank if you don't want to use this line of text.
+g_startBanner_text5 (default="")			<--	The fifth line of text for the start banner.  banners can be colored using ^'s.  you can leave this variable blank if you don't want to use this line of text.
+g_startBanner_text6 (default="")			<--	The sixth line of text for the start banner.  banners can be colored using ^'s.  you can leave this variable blank if you don't want to use this line of text.
+g_startBanner_text7 (default="")			<--	The seventh line of text for the start banner.  banners can be colored using ^'s.  you can leave this variable blank if you don't want to use this line of text.
+g_startBanner_text8 (default="")			<--	The eighth line of text for the start banner.  banners can be colored using ^'s.  you can leave this variable blank if you don't want to use this line of text.
+g_startBanner_text9 (default="")			<--	The ninth line of text for the start banner.  banners can be colored using ^'s.  you can leave this variable blank if you don't want to use this line of text.
+g_startBanner_text10 (default="")			<--	The last line of text for the start banner.  banners can be colored using ^'s.  you can leave this variable blank if you don't want to use this line of text.
+g_noTourneyChat (default=0)				<--	Value to disable public chatting during tournaments.  When set to 1, tournament players will not be able to hear spectators speaking.
+								1 = All public chatting is turned into private chatting.
+								2 = All public chatting is turned into private chatting, escept during the intermission, when all players can hear each other.
+g_headshots (default=0)					<--	Boolean to turn on headshot detection
+g_headshots_multiplier (default=1.8)			<--	The value normal damage is multiplied by when you perform a headshot.
+g_chatLimiter (default=2000)				<--	The value to limit how often someone can chat.  Set it to a value, in milliseconds, people must wait between their chats.  Set it to 0 to turn off chat limiting.  This also controls how often people can spam their name changes.
+g_damage_railgun (default=100)				<--	The amount of damage the railgun delivers	
+g_damage_lightning (default=8)				<--	The amount of damage the lightning gun delivers
+g_damage_gauntlet (default=50)				<--	The amount of damage the gauntlet delivers
+g_damage_machinegun (default=7)				<--	The amount of damage the machinegun delivers
+g_damage_machinegun_team (default=5)			<--	The amount of damage the machinegun delivers during a team game
+g_damage_shotgun (default=10)				<--	The amount of damage the shotgun delivers
+g_damage_bfg (default=100)				<--	The amount of damage the bfg delivers
+g_damage_rocket (default=100)				<--	The amount of damage the rocket launcher delivers
+g_damage_plasma (default=20)				<--	The amount of damage the plasma gun delivers
+g_damage_grenade (default=100)				<--	The amount of damage a grenade delivers
+g_damage_grapple (default=20)				<--	The amount of damage the grappling hook delivers
+g_splashDamage_railgun (default=100)			<--	The amount of splash damage the railgun delivers.  Only active when g_railgunSplash == 1.  If used with railgun jumping, see g_splashRadius_railgun, g_selfDamage, g_knockback_self, and g_railgunSplash (and sub commands).
+g_splashDamage_bfg (default=100)			<--	The amount of splash damage the bfg delivers
+g_splashDamage_rocket (default=100)			<--	The amount of splash damage the rocket launcher delivers
+g_splashDamage_plasma (default=15)			<--	The amount of splash damage the plasma gun delivers
+g_splashDamage_grenade (default=100)			<--	The amount of splash damage a grenade delivers
+g_splashRadius_railgun (default=120)			<--	The size of the splash radius for the railgun.  Only active when g_railgunSplash == 1.  If used with railgun jumping, see g_splashDamage_railgun, g_selfDamage, g_knockback_self, and g_railgunSplash (and sub commands).
+g_splashRadius_bfg (default=120)			<--	The size of the splash radius for the bfg
+g_splashRadius_rocket (default=120)			<--	The size of the splash radius for a rocket
+g_splashRadius_plasma (default=20)			<--	The size of the splash radius for the plasma gun
+g_splashRadius_grenade (default=150)			<--	The size of the splash radius for a grenade
+g_spawnProtection (default=0)				<--	Boolean to enable protected spawning at initial spawning only.  Turning this option on is not necessary if you only want people to be protected after a timeout; in this case, set this variable to 0 and turn g_spawnProtection_timeout on.
+g_spawnProtection_type (default=1)			<--	Will cause all spawning players to spawn with either invisibility or the battle suit.  This only takes affect on the initial spawn, not if you are teleported or during a lastmanstanding or freezetag score or muckleball match restart.  See g_spawnProtection_otherPlayers for more information.  Set to 0 to turn off protected spawning.
+								1 = Players spawn invisible with no spawning sounds
+								2 = Players spawn with the battlesuit powerup.  Beware when using this when g_freezetag_frozenTeamColors is set to a non-zero value, since spawning people will look like frozen bodies.
+g_spawnProtection_time (default=2000)			<--	Time in milliseconds each player should remain protected (invisible or with the battle suit) when they spawn.
+g_spawnProtection_otherPlayers (default=0)		<--	Boolean to protect the winning team's players after a point is won in freezetag or team lastmanstanding or the single player in ffa lastmanstanding.  g_spawnProtection must be turned on for this variable to take effect.
+g_spawnProtection_timeout (default=0)			<--	Boolean to protect players after a timeout ends.
+g_spawnProtection_noPowerupSound (default=0)		<--	Boolean to eliminate the powerup sound you hear when you spawn and get the battlesuit or invisibility powerup (the g_spawnProtection_type).
+g_gameMod (default=0)					<--	Selects the game modification.  This modifies the type of gameplay determined in g_gameType.
+								0 = no game mod (default play)
+								1 = freezetag (modifies team play, g_gameType == 3)
+								2 = lastmanstanding (free for all and team play, g_gameType == 0 and g_gameType == 3)
+								3 = muckleball (free for all, g_gameType == 0)
+g_gameMod_scoringSound (default="sound/teamplay/flagret_red.wav")
+							<--	The sound that is played when a point is scored and when g_gameMod is set to freezetag, lastmanstanding, or muckleball.  Another common sound is sound/teamplay/flagcap_red.wav.
+g_spawnInvulnerable (default=0)				<--	Boolean to enable invulnerable spawning.  Will cause all spawning players to spawn invulnerable.  This only takes affect on the initial spawn, not if you are teleported during a lastmanstanding or freezetag score or muckleball match restart.  See g_spawnInvulnerable_otherPlayers for more information.  Set to 0 to turn off protected spawning.  Turning this option on is not necessary if you only want people to be invulnerable after a timeout; in this case, set this variable to 0 and turn g_spawnInvulnerable_timeout on.  If this is on, as well as g_spawnInvulnerable_otherPlayers, and the gametype is tournament, no player will be able to shoot for g_spawnInvulnerable_time number of milliseconds.
+g_spawnInvulnerable_time (default=2000)			<--	Amount of time in milliseconds each player will be invulnerable when they spawn.  During this time, they will also be unable to inflict damage on other players.  This will only protect players on their initial spawn, not when they respawn after a frezetag or lastmanstanding or muckleball score.  If you want protected spawning in those situations, then see g_spawnInvulnerable_otherPlayers
+g_spawnInvulnerable_otherPlayers (default=0)		<--	Boolean to make the winning player(s) invulnerable after a score in LMS, TeamLMS or Freezetag.  In MuckleBall, this is will make all players invulnerable after the point intermission is over.
+g_spawnInvulnerable_timeout (default=0)			<--	Boolean to make the players invulnerable after a timeout ends.  See g_timeout for more information.
+g_freezetag_unfreezeTime (default=3000)			<--	Amount of time in milliseconds a player has to stand next to a corpsicle to melt it in freezetag.
+g_freezetag_frozenTeamColors (default=0)		<--	Boolean to turn on team colors for frozen bodies in freezetag.
+g_freezetag_autoMeltTime (default=150)			<--	Time in seconds when a frozen player will melt on their own in freezetag.
+g_freezetag_friendyAutoMeltTime (default=5000)		<-	Time in milliseconds a frozen player will melt when shot by their own teammate.  G_friendlyfire must be equal to 2 or 3 for this setting to take effect.
+g_freezetag_worldAutoMeltTime (default=5000)		<--	Time in milliseconds a frozen player will melt when the body is shot into the void, lava, or slime.
+g_freezetag_teleporterMelt (default=1)			<--	Boolean to make frozen bodies in freezetag melt when they hit a teleporter.  By default, they will melt.
+g_freezetag_oldMeltingSound (default=0)			<--	Boolean to turn on the old melting sound that came with the original Freezetag.  Setting this to 0 will make a melting body sound like the regen powerup, and setting this to 1 will make a melting body sound like a noise from TankJr.
+g_wpflags (default=3)					<--	Determines what weapons players start with.  These values are cumulative (for instance, to enable machine guns (2) and gauntlet (1), you set this value to 3)::
+								1 = Gauntlet (default)
+								2 = Machine Gun (default)
+								4 = Shotgun
+								8 = Grenade Launcher
+								16 = Rocket Launcher
+								32 = Lightning Gun
+								64 = Railgun
+								128 = Plasma Gun
+								256 = BFG
+								512 = Grappling Hook (see also g_offhandGrapple)
+g_startWeapon (default=0)				<--	Determines which weapon is in the ready position when a player spawns.  These values are, obviously, not cumulative.  Setting this value to 0 will force the most powerful weapon to be in the ready postion at spawn time, which is the default.
+								1 = Gauntlet
+								2 = Machine Gun
+								4 = Shotgun
+								8 = Grenade Launcher
+								16 = Rocket Launcher
+								32 = Lightning Gun
+								64 = Railgun
+								128 = Plasma Gun
+								256 = BFG
+								512 = Grappling Hook
+g_doReady (default=0)					<--	Boolean to force everyone to click "Ready" during the intermission to start the next map.
+g_startArmor (default=0)				<--	The amount of armor each person starts with when they spawn.
+g_startPowerup (default=0)				<--	The type of powerup you get when you spawn.  These values are cumulative (for instance, if you wanted the player to spawn with regeneration and quad, set this value to 17).
+								1 = Regeneration
+								2 = BattleSuit
+								4 = Haste
+								8 = Invisibility
+								16 = Quad Damage
+								32 = Flight
+g_startPowerup_time (default=5000)			<--	The time in milliseconds a player will have a powerup when they spawn.
+g_startPowerup_otherPlayers (default=0)			<--	Boolean to make all players get a powerup after a point is won in freezetag and lastmanstanding or muckleball.  g_startPowerup must be turned on for this variable to take effect.  Normally, only the people respawning will get the powerup.
+g_startHoldable (default=0)				<--	The type of holdable powerup you get when you spawn.  These values are _not_ cumulative.
+								1 = Personal Teleporter
+								2 = MedKit
+g_startHoldable_otherPlayers (default=0)		<--	Boolean to make all players get a holdable powerup after a point is won in freezetag and lastmanstanding or muckleball.  g_startHoldable must be turned on for this variable to take effect.  Normally, only the people respawning will get the powerup.
+g_calcStats (default=0)					<--	Boolean to calculate in-game player stats.  The player stats will print out in the console after the game.  Can also be accessed by any player by typing \stats in the console.
+g_lastmanstanding_voidRespawnTime (default=7000)	<--	The amount of time each person is protected from falling into the void when they respawn in lastmanstanding.
+g_warnings (default=0)					<--	Boolean to enable player warnings for server-sided auto-kicking.  when players team-kill, chatfrag, switch teams too often, or excessively suicide, they will get warned.  When they are warned g_warnings_* times, they are kicked.  Set it to 0 to disable all warnings and server-sided auto-kicking.
+g_warnings_chatFrag (default=5)				<--	Number of warnings a player is allowed to have for chatfragging before they get kicked.
+g_warnings_teamKill (default=5)				<--	Number of warnings a player is allowed to have for team killing before they get kicked.
+g_warnings_changeTeam (default=3)			<--	Number of warnings a player is allowed to have for team switching before they get kicked.
+g_warnings_massSuicide (default=5)			<--	Number of warnings a player is allowed to have for suiciding before they get kicked.
+g_warnings_chatFragTime (default=90)			<--	The time in seconds a player has to do two chat frags to earn a warning.
+g_warnings_teamKillFime (default=120)			<--	The time in seconds a player has to kill two teammates to earn a warning.
+g_warnings_changeTeamTime (default=115)			<--	The time in seconds a player has to change teams twice to earn a warning.
+g_warnings_massSuicideTime (default=120)		<--	The time in seconds a player has to suicide twice to earn a warning.
+g_timeout (default=0)					<--	Number of timeouts each team is allowed to call.  Set to 0 to disable timeouts.  Must be in a team game to be able to call a timeout.  To call a timeout, type \timeout in the player's console.  If a team wants to end a timeout prematurely, type \timein in the player's console.
+g_timeout_time (default=15)				<--	Length of each timeout in seconds.
+g_timeout_minPlayingTime (default=120)			<--	The minimum amount of time, in seconds, that a player must be playing in order to call a timeout.
+g_timeout_displayTime (default=1)			<--	Time, in milliseconds, a player will see the message stating that a timeout has been called.
+g_decoy (default=0)					<--	Number of decoys each player has.  Set this to 0 to disable decoys.  To deploy a decoy, type \decoy in the player's console.
+g_decoy_think (default=12)				<--	Number of times the decoy will move.  The time between each move is between 1 and 3 seconds.  A large g_decoy_think will make decoys stay around longer, whereas a small g_decoy_think value will make decoys disappear quickly.
+g_offhandGrapple (default=0)				<--	Turns on offhand grappling.  Bind a button to +button5 to use it.
+								0 = Offhand grapple is disabled
+								1 = Normal offhand grapple behavior
+								2 = Realistic offhand grapple.  This will allow you more swinging as well as better physics than the normal offhand grapple.
+								3 = Quake 2 style offhand grapple, which just makes you have a different position when you are holding the grapple.  Mainly a cosmetic change.
+g_railgunEffects (default=0)				<--	Turns on the railgun's special abilities:
+								0 = normal railgun firing
+								1 = make the railgun go through everything, including map walls
+								2 = make the railgun bounce off map structures
+g_railgunEffects_reflections (default=4)		<--	If g_railgunEffects is set to 2, this is the number of railgun beam reflections that will occur before the railgun beam terminates.
+g_railgunEffects_bankshotOnly (default=0)		<--	Boolean to make reflected railgun shots only deliver damage, rather than direct-hit railgun shots.
+g_railgunSplash (default=0)				<--	Boolean to enable splash damage and knockback on the railgun.  This also enables railgun-jumping.  Can be further tweaked with g_splashDamage_railgun and g_splashRadius_railgun and will also work with all railgun reflections if g_railguneffects == 2.  If using this for railgun-jumping, see g_selfDamage, g_splashDamage_railgun, g_knockback_self, and g_splashRadius_railgun.
+g_railgunSplash_noTargetDamage (default=0)		<--	Value to turn off splash damage on opponents and make it so that a railgun splash won't hurt an opponent.  Useful when you want to railgun jump, but you don't want the splash to affect other players.
+								0 = No damage will be given to any player from a railgun splash
+								1 = Damage will be given to players from a railgun splash
+								2 = Damage will be given to players by not frozen bodies (in freezetag) from a railgun splash
+g_railgunSplash_noTargetKnockback (default=0)		<--	Boolean to turn off knockback on opponents and make it so that a railgun splash won't knockback opponents.  Useful when you want to railgun jump, but you don't want the splash to affect other players.
+g_weaponSwitchTime (default=200)			<--	Time in milliseconds it takes to switch weapons.
+g_antiCamper (default=0)				<--	Time in seconds a person can camp in the same location.  Set it to 0 to disable anticamper measures.
+g_antiCamper_radius (default=192)			<--	Radius of the circle the player must move beyond to be considered not camping.
+g_antiCamper_warnDisplayTime (default=1)		<--	Time, in milliseconds, a player will see the warning message stating that they are about to die due to camping
+g_noPowerupDrop (default=0)				<--	Boolean to disable all powerup dropping when a player dies.
+g_noPowerupDrop_teamPlay (default=1)			<--	Boolean to disable all powerup dropping when a player dies in teamplay.  By default, no weapons are dropped in teamplay, but by setting this variable to 0, powerups will be dropped.  If set to 0, be sure g_noPowerupDrop is also set to 0.
+g_noWeaponDrop (default=0)				<--	Boolean to disable all weapon dropping when a player dies.
+g_selfDamage (default=0.5)				<--	Multiplier for damage inflicted upon yourself.  Make it 0 to prevent all self-damage.
+g_blackNameFix (default=0)				<--	Variable to disable/enable the black name fix, which will disable people from exploiting the bug which allows black letters in player names.
+								0 = Stock version of quake that allows people to use black names due to a bug
+								1 = Prevent the use of black names unconditionally
+								2 = Totally allow players to use black names by using ^0
+g_turret (default=0)					<--	Boolean to turn on turrets in gameplay.  To give turrets to each person, adjust g_turret_amount.
+g_turret_amount (default=2)				<--	Number of turrets each person starts with.  To deploy a turret, type \turret in the player's console.
+g_turret_friendlyFire (default=0)			<--	Boolean to allow turrets to target and shoot at teammates in team games.  G_friendlyFire must also be on for this to take effect.
+g_turret_lifetime (default=45)				<--	The lifetime, in seconds, of each turret.  when the lifetime is up, the turret explodes.
+g_turret_targetDist (default=512)			<--	The distance in front of the turret the turret will look for possible targets.
+g_turret_targetArc (default=45)				<--	The number of degrees the turret can turn to shoot at someone.  This value is measured in degrees in one direction, so setting it to 90, for instance, will allow the turret to turn left 90 degrees and turn right 90 degrees, so it has a total of 180 degrees of movement (this applies to up and down movement also).
+g_turret_splashRadius (default=100)			<--	The splash radius of the turret when it explodes.
+g_turret_splashDamage (default=100)			<--	The amount of splash damage the turret will do when it explodes.
+g_turret_projSplashRadius (default=100)			<--	The splash radius of the turret's projectile when it explodes.
+g_turret_projSplashDamage (default=100)			<--	The amount of splash damage the turret's projectile will do when it explodes.
+g_turret_damage	(default=15)				<--	The amount of damage the turret will do when it hits you with a projectile.
+g_turret_health (default=25)				<--	The health of the turret.  To kill a turret, shoot anywhere below it.
+g_turret_reloadTime (default=300)			<--	The time it takes for the turret to reload before shooting again.
+g_turret_weapon (default=1)				<--	The type of projectile that the turret shoots:
+								1 = Plasma
+								2 = Grenades
+								3 = Rockets
+								4 = BFGs
+g_turret_setupTime (default=5000)			<--	The inactivity time, in milliseconds, between when the turret is deployed and when it starts targeting enemies.
+g_turret_deployLimit (default=0)			<--	The number of turrets that you can have deployed at any one time
+g_turret_teamProtected (default=0)			<--	Boolean to make the turret invulnerable to damage inflicted by teammates, except the owner of the turret.
+g_turret_teamMarker (default=0)				<--	Boolean to draw blue or red rings around the turrets in team games to distinguish which team they belong to.
+g_autoBan (default=0)					<--	Boolean to turn on autobanning for excessive chat fragging, team killing, team changing, or mass suiciding.
+g_autoBan_chatFrag (default=3)				<--	The number of games a person will be banned if they are kicked due to excessive chatfragging.  Set this to -1 to make the ban a permanent ban.
+g_autoBan_teamKill (default=3)				<--	The number of games a person will be banned if they are kicked due to excessive team killing.  Set this to -1 to make the ban a permanent ban.
+g_autoBan_changeTeam (default=3)			<--	The number of games a person will be banned if they are kicked due to excessive team changing.  Set this to -1 to make the ban a permanent ban.
+g_autoBan_massSuicide (default=3)			<--	The number of games a person will be banned if they are kicked due to excessive suiciding.  Set this to -1 to make the ban a permanent ban.
+g_teamName_red (default="Red Team")			<--	The name of the red team in freezetag and lastmanstanding.
+g_teamName_blue (default="Blue Team")			<--	The name of the blue team in freezetag and lastmanstanding.
+g_knockback_self (default=1000)				<--	Value to control the amount of knockback you can give yourself.  Useful for tweaking rocket jumping and railgun jumping.  If using this for railgun-jumping, see g_selfDamage, g_splashDamage_railgun, g_splashRadius_railgun, and g_railgunSplash (and sub commands).
+g_maxHealthMultiplier (default=1.00)			<--	The amount to multiply 100 by to get the max health value for players.  For instance, setting this to 2.00 will allow all your players to get 200 health.  Players with handicaps will have lower max health values, as normal.  While players can get above this value, this value represents the point at which health will no longer count down.
+g_startHealthMultiplier (default=1.25)			<--	The amount to multiply g_maxHealthMultiplier and 100 by to get your spawning health.  You spawning health = 100 * g_maxHealthmultiplier * g_startHealthMultiplier.
+dmflags (default=0)					<--	Determines which game options are in effect.  These values are cumulative (for instance, to disable falling damage and footsteps, you set this value to 40):
+								8 = No falling damage		-->	Disables players from receiving damage due to falling.
+								16 = Fixed field of view	-->	Disables players from adjusting the cg_fov variable on their client.
+								32 = No footsteps		-->	Turns off the footstep noise.
+								64 = No item reset		-->	Only active when in freezetag or lastmanstanding (see g_gameMod).  It causes all living players at the end of the point to not have their weapons and armor reset.  This puts them at a disadvantage.
+								128 = No team reset		-->	Only active when in freezetag or lastmanstanding (see g_gameMod).  It causes the team that won the last point to not reset, which means that people who were dead/frozen at the end of the last point will stay dead/frozen until they are melted or until their team loses a point.
+								256 = Weapons stay		-->	Only active when in freezetag (see g_gameMod).  It causes dropped weapons to stay and not be freed.
+								512 = No playerclip		-->	Allows players to walk along ledges and go on the roofs of maps without being stopped by some invisible wall.  An unfortunate side effect is that you may fall through some see-through floors.
+								1024 = Nightmare mode		-->	Only active when in freezetag or lastmanstanding (see g_gameMod).  In both g_gameMods, you'll do 8 times the normal amount of damage and you'll start with tons of weapons and ammo.  In freezetag, you'll automelt faster and melt other people faster.
+								2048 = No world damage		-->	Disabled players from receiving damage from lava, slime, and water.    Note: if you turn this on and are playing in freezetag, a frozen body shot into the lava will no longer automelt.
+								4096 = Other Player Clip	-->	Allows players to walk through other players, rather than bump into them.  This is useful for servers that are very popular but use smaller maps.
+g_muckleball_ballType (default=1)			<--	The type of powerup you get when carrying the MuckleBall (when in g_gameMod == 3).  These values are cumulative (for instance, if you wanted the player with the MuckleBall to have regeneration and quad, set this value to 17).
+								1 = Regeneration
+								2 = BattleSuit
+								4 = Haste
+								8 = Invisibility
+								16 = Quad Damage
+								32 = Flight
+g_muckleball_intermissionTime (default=5)		<--	The number of seconds of intermission time between Muckleball rounds.
+g_muckleball_lastHurtTime (default=5000)		<--	The duration, in milliseconds, between when a person hits and when you suicide or fall into the void, where the attacker will get credit for a MuckleBall kill.  Set this to 0 to force the MuckleBall to be given to a random person if the holder falls into the void.
+g_muckleball_scoringMultiplier (default=0.5)		<--	When the MuckleBall holder is killed, the killer will get points equal to the number of players in the arena times g_muckleball_scoringMultiplier.
+g_muckleball_regenMultiplier (default=2)		<--	When the MuckleBall holder has the regen powerup, they will get health every second equal to the number of people in the game times g_muckleball_regenMultiplier.
+g_regen_addHealth (default=15)				<--	The amount of health you get every second when you have the regeneration powerup
+g_lifetime_rocket (default=10000)			<--	The lifetime, in milliseconds, of a rocket.  When this time expires, the rocket will explode.  Note: Setting this to 0 will make rockets last forever.
+g_lifetime_bfg (default=10000)				<--	The lifetime, in milliseconds, of a bfg projectile.  When this time expires, the projectile will explode.  Note: Setting this to 0 will make the projectile last forever.
+g_lifetime_grenade (default=2500)			<--	The lifetime, in milliseconds, of a grenade.  When this time expires, the grenade will explode.  Note: Setting this to 0 will make grenade last forever.
+g_lifetime_plasma (default=10000)			<--	The lifetime, in milliseconds, of a plasma projectile.  When this time expires, the projectile will explode.  Note: Setting this to 0 will make the projectile last forever.
+g_lifetime_grapple (default=5000)			<--	The lifetime, in milliseconds, of a firing grapple hook.  When this time expires, the firing grapple hook will explode.  Note: Setting this to 0 will make the firing grapple hook last forever.
+g_noPublicChat (default=0)				<--	Boolean to disable all public chatting.  Useful for controlling public chats during clan matches.
+g_noDamageAfterDeath (default=0)			<--	Boolean to disable all damage from dead players.  If a player fires a projectile, then dies, all the player's projectiles will not deliver damage, even if said player respawns.
+g_noSpawningSound (default=0)				<--	Boolean to disable all sounds and visual effects when you spawn.  Turning this variable on will disable the teleport sound during spawning as well as the teleport visual effect on spawning.  If you are spawning protected (g_spawnProtection) and you want to disable the powerup sound effect, then see g_spawnProtection_noPowerupSound.
+g_longNameFix (default=0)				<--	Boolean to fix player names being truncated when the onscreen messages are longer than 34 characters.  Instead of players seeing, "LongNamedPlayer has joined the re", the message will be spread over two lines.
+g_adminLog (default=admin.log)				<--	Name of the admin logfile that is created by quake.  It contains the player names and ip addresses of all players who have connected to the server.  If you have g_referee turned on, then this log will also contain all referee game interaction (for possible abuse auditing).
+g_adminLogSync (default=0)				<--	Syncronizes file writes to the logfile.  Setting this to 1 causes the Quake engine to write data to the log file as soon as data is created, which causes performance degradation.  Leaving it at 0 causes the engine to write data to a buffer.  When that buffer fills, the buffer is written out to disk.
+g_referee (default=0)					<--	Variable to enable referees.  Referees can act as pseudo-admins to control the game, kick players, etc.  See the net and improved server command list (below) for more information.
+								1 = Enables referees
+								2 = Enables referees and prints referee on scoreboard and announces "PlayerNameHere is now a referee".  Players using the new NoGhost client mod will see an "R" next to this player's name identifying them as a referee.
+g_referee_password (default="")				<--	Password that all referees must use to turn on their referee abilities
+g_referee_warnDisplayTime (default=1)			<--	Time, in milliseconds, a player will see the warning message stating that they have received a warning
+g_referee_allowedcmd_*					<--	Set of allowed commands that referees are allowed to use.  For instance, if you want referees to be allowed to kick another player, do a 'set g_referee_allowedcmd_kick 1' at the console.  If you want referees to be allowed to mute someone, then do a 'set g_referee_allowedcmd_mute 1' at the console.  Create as many g_referee_allowedcmd_* variables you need for your referees to control the game appropriately.  See the ref command tutorial below in the server commands.
+g_antiBot (default=0)					<--	Option to enable client cheat checking.
+								1 = When a cheat is detected, the player is kicked (and/or banned), and a log entry is made into the admin log about why
+								2 = Same as 1, except the player is not kicked (and/or banned).  Only the log entry is made.
+g_antiBot_gamesBanned (default=10)			<--	Number of games a suspected bot user or cheater is banned from the server.  Leaving this at 0 will not ban a cheater, they will instead only be kicked.
+g_dodge (default=0)					<--	Boolean to enable players to use dodging.  To dodge, double-tap a direction to move in, and your player will then quickly jump in that direction.
+g_dodge_restTime (default=1500)				<--	The time, in milliseconds, after doing a dodge that you must wait before performing another dodge.
+g_doublejump (default=0)				<--	Boolean to enable player double jumping.  By hitting the jump button twice in rapid succession, the player will then jump twice, which can lead to higher jumps and much higher weapon-assisted jumps.
+g_doublejump_timeout (default=250)			<--	The time after your first jump, in milliseconds, that you have to hit the jump key a second time in order to create a double jump.
+g_password_errorMessage (default="Invalid password")	<--	Message displayed to connecting players when they do not have the correct password.  Used when g_needpass and g_password are both valid.
+g_respawn_armor	(default=25)				<--	The time in seconds it will take for armor to spawn again after being picked up.
+g_respawn_health (default=35)				<--	The time in seconds it will take for health to spawn again after being picked up.			
+g_respawn_ammo (default=40)				<--	The time in seconds it will take for ammo to spawn again after being picked up.
+g_respawn_holdable (default=60)				<--	The time in seconds it will take for a holdable item to spawn again after being picked up.
+g_respawn_megahealth (default=120)			<--	The time in seconds it will take for megahealth to spawn again after being picked up.
+g_respawn_powerup (default=120)				<--	The time in seconds it will take for a powerup, like quad, to spawn again after being picked up.
+g_noPowerupSpawnSound (default=0)			<--	Boolean to disable the global powerup sound you hear when (for instance) quad spawns.
+g_noPowerupPickupSound (default=0)			<--	Boolean to disable the global powerup sound you hear when (for instance) quad is picked up.
+g_itemDisable (default=0)				<--	Determines what map items, like weapons and ammo are disabled from spawning on your map.  Find what items you want disabled, add their values up, and set g_itemDisable to it.  For instance, to disable quad and the grenade launcher, add 67108864 + 512 and then set g_itemDisable to the sum.
+								-1 = disable all map items
+								1 = armor shard
+								2 = combat armor
+								4 = body armor
+								8 = small health
+								16 = medium health
+								32 = large health
+								64 = mega health
+								128 = gauntlet
+								256 = shotgun
+								512 = grenadelauncher
+								1024 = rocketlauncher
+								2048 = lightninggun
+								4096 = railgun
+								8192 = plasmagun
+								16384 = bfg
+								32768 = grapplinghook
+								65536 = shotgun ammo box
+								131072 = machinegun ammo box
+								262144 = grenade ammo box
+								524288 = plasmagun ammo box
+								1048576 = lightninggun ammo box
+								2097152 = rocket ammo box
+								4194304 = railgun ammo box
+								8388608 = bfg ammo box
+								16777216 = personal teleporter
+								33554432  = medkit
+								67108864 = quad damage
+								134217728 = environmental suit/battle suit
+								268435456 = haste
+								536870912 = invisibility
+								1073741824 = regeneration
+								2147483648 = flight
+g_quadRestrictions (default=0)				<--	Determines various restrictions that apply to someone holding the quad damage.  These restrictions apply to the player holding the quad for as long as they hold it.  These values are also cumulative.
+								1 = the player cannot pick up armor
+								2 = the player cannot pick up health
+								4 = the player cannot pick up quad
+g_powerupTime_quad (default=30)				<--	The amount of time, in seconds, that quad will last.
+g_powerupTime_battlesuit (default=30)			<--	The amount of time, in seconds, that the battlesuit will last.
+g_powerupTime_haste (default=30)			<--	The amount of time, in seconds, that haste will last.
+g_powerupTime_invis (default=30)			<--	The amount of time, in seconds, that invisibility will last.
+g_powerupTime_regen (default=30)			<--	The amount of time, in seconds, that regeneration will last.
+g_powerupTime_flight (default=60)			<--	The amount of time, in seconds, that flight will last.
+g_switchTeamTime (default=5)				<--	The amount of time, in seconds, that you must be playing before you can change teams. This variable also controls how often you can change teams.
+g_intermissionAddBot (default=0)			<--	Boolean to allow bots to be added into the game during the intermission.
+g_grapple_skyattach (default=0)				<--	Boolean to allow the grappling hook to attach/hook onto the sky.
+g_projectileBounce (default=0)				<--	Variable to make certain projectiles bounce when they hit a map structure, rather than exploding.  These values are cumulative.
+								1 = Plasma
+								2 = Rockets
+								4 = BFGs
+g_ctf_flagPowerup (default=0)				<--	Boolean to give the flag holder in ctf quad damage.  If you only want the person to have the quad skin and not quad damage, then set g_quadfactor to 1.
+g_ctf_baseMarker (default=0)				<--	Boolean to draw a blue or red ring at the center of the blue or red base, respectively.
+g_frictionCoefficient (default=6)			<--	The amount of friction you experience moving around on the map.
+g_frictionCoefficient_water (default=1)			<--	The amount of friction you experience moving around in water
+g_frictionCoefficient_flight (default=3)		<--	The amount of friction you experience while using the flight powerup.
+g_accelerationCoefficient (default=10)			<--	The amount of acceleration you experience while moving around on the map.
+g_accelerationCoefficient_air (default=1)		<--	The amount of acceleration you experience while you are not on solid ground (like when you free falling).
+g_accelerationCoefficient_water (default=4)		<--	The amount of acceleration you experience while moving around in water.
+g_accelerationCoefficient_flight (default=8)		<--	The amount of acceleration you experience while using the flight powerup.
+g_freezetag_spawnCampedRespawnTime (default=0)		<--	The amount of time, in milliseconds, that can elapse after you spawn wherein you can be killed and will automelt in 5 seconds, provided you are g_freezetag_spawnCampedDistance from your original spawn point.  Set this to be 0 to turn off this feature.
+g_freezetag_spawnCampedDistance (default=100)		<--	The distance you can be from you (re)spawn point in order to qualify for automatic automelting as directed by g_freezetag_spawnCampedRespawnTime.
+g_freezetag_spawnCampedNoPoints (default=0)		<--	Boolean to force a spawn camper to not gain any points if they freeze a person who recently spawned and the victim hasn't moved much.
+g_freezetag_spawnCamped_otherPlayers (default=0)	<--	Boolean to force a person killed by a person who just spawned to respawn in g_freezetag_spawnCampedRespawnTime milliseconds.
+g_lastmanstanding_spawnCampedRespawnTime (default=0)	<--	The amount of time, in milliseconds, that can elapse after you spawn wherein you can be killed and will respawn afterwards, provided you are g_lastmanstanding_spawnCampedDistance from your original spawn point.  Set this to be 0 to turn off this feature.
+g_lastmanstanding_spawnCampedDistance (default=100)	<--	The distance you can be from you (re)spawn point in order to qualify for automatic respawning as directed by g_lastmanstanding_spawnCampedRespawnTime.
+g_lastmanstanding_spawnCampedNoPoints (default=0)	<--	Boolean to force a spawn camper to not gain any points if they kill a person who recently spawned and the victim hasn't moved much.
+g_lastmanstanding_spawnCamped_otherPlayers (default=0)	<--	Boolean to force a person killed by a person who just spawned to respawn in g_lastmanstanding_spawnCampedRespawnTime milliseconds.
+g_turret_freePlacement (default=0)			<--	Boolean enabling a player to place a turret anywhere without it dropping to the floor.
+g_turret_overlapEntities (default=0)			<--	Boolean to allow players to place a turret where another items or player may spawn.  This also allows the turret to move with moving platforms.
+g_farthestRespawnPoint (default=1)			<--	Boolean to determine how the NoGhost mod will determine where to respawn a player after they die. Turning this variable off will spawn the player anywhere in the arena, rather than farthest away from they died. This could increase their chances of spawning right next to their former attacker.
+g_tournamentMapRotation (default=0)			<--	Boolean to allow map roations to occur during tounaments. Setting the value of nextmap will determine the next map in the rotation.
+g_freezetag_grappleFreeze (default=0)			<--	Boolean to allow the grappling hook to freeze people in freezetag.
+g_referee_teamChat (default=0)				<--	Variable to control if referees can hear team-only chats
+								1 = Referees can hear the red team
+								2 = Referees can hear the blue team chat
+								3 = Referees can hear all team chats
+g_suddenDeath (default=1)				<--	Boolean to enable the game to go to a sudden death in the event that the score is tied, yet time has run out.
+g_maxTeamPlayers_red (default=0)			<--	The maximum number of players allowed on the red team.
+g_maxTeamPlayers_blue (default=0)			<--	The maximum number of players allowed on the blue team.
+g_maxAmmo_rocket (default=0)				<--	The maximum amount of rocket launcher ammo you can have.
+g_maxAmmo_plasma (default=0)				<--	The maximum amount of plasma gun ammo you can have.
+g_maxAmmo_bfg (default=0)				<--	The maximum amount of BFG ammo you can have.
+g_maxAmmo_grenade (default=0)				<--	The maximum number of grenades you can have.
+g_maxAmmo_machinegun (default=0)			<--	The maximum amount of machinegun ammo you can have.
+g_maxAmmo_shotgun (default=0)				<--	The maximum amount of shotgun ammo you can have.
+g_maxAmmo_lightning (default=0)				<--	The maximum amount of lightning gun ammo you can have.
+g_maxAmmo_railgun (default=0)				<--	The maximum amount of railgun ammo you can have.
+g_weaponSwitchTime_fastSwitch (default=100)		<--	Time in milliseconds that it takes to switch a weapon when you are combining shots.  See g_weaponSwitchTime_comboShots for more information.
+g_WeaponSwitchTime_comboShots (default=0)		<--	The number of shots you can combine together.  Combing a shot means shooting another weapon rapidly after another one and not waiting for the first one to finish reloading.
+g_freezetag_spawnCampedMeltTime (default=5000)		<--	The amount of time, in milliseonds, you remain frozen after being spawncamped in freezetag.
+g_damage_water (default=2)				<--	The amount of damage you take every second for being under the water too long.
+g_damage_lava (default=30)				<--	The amount of damage you take every second for being in lava.
+g_damage_slime (default=10)				<--	The amount of damage you take every second for being in slime.
+g_pickupAmmo_rocket (default=50)			<--	The amount of rocket launcher ammo you get when you get a rocket launcher ammo box.
+g_pickupAmmo_plasma (default=30)			<--	The amount of plasma gun ammo you get when you get a plasma gun ammo box.
+g_pickupAmmo_bfg (default=15)				<--	The amount of BFG ammo you get when you get a BFG ammo box.
+g_pickupAmmo_grenade (default=5)			<--	The number of grenades you get when you get a grenade ammo box.
+g_pickupAmmo_machinegun (default=50)			<--	The amount of machinegun ammo you get when you get a machinegun ammo box.
+g_pickupAmmo_shotgun (default=10)			<--	The amount of shotgun ammo you get when you get a shotgun ammo box.
+g_pickupAmmo_lightning (default=60)			<--	The amount of lightning gun you get when you get a lightning gun ammo box.
+g_pickupAmmo_railgun (default=10)			<--	The amount of railgun ammo you get when you get a railgun ammo box.
+g_pickupWeaponAmmo_rocket (default=10)			<--	The amount of rocket launcher ammo you get when you get a rocket launcher.
+g_pickupWeaponAmmo_plasma (default=50)			<--	The amount of plasma gun ammo you get when you get a plasma gun.
+g_pickupWeaponAmmo_bfg (default=20)			<--	The amount of BFG ammo you get when you get a BFG.
+g_pickupWeaponAmmo_grenade (default=10)			<--	The number of grenades you get when you get a grenade.
+g_pickupWeaponAmmo_shotgun (default=10)			<--	The amount of shotgun ammo you get when you get a shotgun.
+g_pickupWeaponAmmo_lightning (default=100)		<--	The amount of lightning gun you get when you get a lightning gun.
+g_pickupWeaponAmmo_railgun (default=10)			<--	The amount of railgun ammo you get when you get a railgun.
+g_pickupHealth (default=25)				<--	The amount of health you get when you pickup a normal sized health item.
+g_pickupHealth_small (default=5)			<--	The amount of health you get when you pickup a small sized health item.
+g_pickupHealth_large (default=50)			<--	The amount of health you get when you pickup a large sized health item.
+g_pickupHealth_mega (default=100)			<--	The amount of health you get when you pickup a mega health item.
+g_pickupArmor_shard (default=5)				<--	The amount of armor you get when you pickup an armor shard.
+g_pickupArmor_body (default=100)			<--	The amount of armor you get when you pickup body armor.
+g_pickupArmor_combat (default=50)			<--	The amount of armor you get when you pickup combat armor.
+g_freezetag_fallingFreeze (default=1)			<--	Boolean to make cratering freeze you when in freezetag (g_gamemod = 1).
+g_delag_connectionIcon (default=1)			<--	Boolean to enable the 'connection interrupted' icon to appear over player's heads when their connection drops packets or otherwise causes the server to predict where they are.
+g_delag_truePing (default=0)				<--	Boolean to make player pings reflect the additional 50ms server-sided lag that is inherent in playing Quake.
+g_muted_message (default=...Resistance is futile.)	<--	Message that appears whenever a muted player attempts to talk.  Colors prefixes, like ^1, are valid in this message.
+g_antiCamper_message (default=...self-destruction!)	<--	Message that appears whenever a player is about to be killed for camping too much.  Colors prefixes, like ^1, are valid in this message.
+g_playerlist (default=0)				<--	Boolean to enable players to type /playerlist in their console to get a list of players and their client numbers.
+g_noPrivateChat (deault=0)				<--	Boolean to disable all private chats in the arena.  This will prevent players from whispering to each other in clan matches as well, and can prevent spectators from telling people where the other team's players are.
+g_lightningSplash (default=0)				<--	Boolean to enable splash damage on the lightning gun.
+g_splashRadius_lightning (default=15)			<--	The radius of the splash that is created by the lightning gun, assuming that g_lightningSplash is set to 1.
+g_splashDamage_lightning (default=5)			<--	The damage of the splash that is created by the lightning gun, assuming that g_lightningSplash is set to 1.
+g_grenadeEffects (default=0)				<--	Turns on homing grenades.  On every bounce they will change their direction to home in a player.
+g_grenadeEffects_targetDist (default=768)		<--	Size of the targeting cone ahead of the grenade.  The closer this value is to 1, the narrower the cone (will only target players directly in front of the grende).  The closer this value is to 0, the wider the cone (will target the first player it considers to be a target).
+g_grenadeEffects_targetCone (default=0.90)		<--	The turning radius of a grenade.  Make this value small to make the grenade turn quickly (and hard to dodge).  Make it large to make the grennade turn slowly (easy to dodge).
+g_grenadeEffects_turnRadius (default=1.25)		<--	Maximum distance ahead of the grenade a player can be to be considered as a target
+g_noLocalhost (default=1)				<--	Disables the use of localhost as a connecting client.  This attempts to fix an IP address spoofing bug within Quake, which could allow a user to act as a localhost client and evade certain banninf mechanisms of the mod.  Disable this option only if you are hosting a game and playing from the same instance of Quake.
+g_noLocalhost_errorMessage (default=...disabled)	<--	The error message that a connection local client will see
+g_voidProtection (default=0)				<--	Variable to enable player protection from faling off maps into the void.  This is especially useful in space maps
+								1 = Instaed of dying when you hit the bottom of the map, you will land and can move around.
+								2 = Instead of dying when you hit the bottom of the map, you will instead be teleported back to somewhere on the map.
+g_maxHealthMultiplier_noCountDown (default=0)		<--	Turning this on (setting it to 1) will allow you to gain health every second equal to g_regen_addhealth.  This effective acts like you have the regeneration powerup, except that you don't have the powerup's skin or sound.
+g_antiGravityBoots (default=0)				<--	Boolean to turn on anti-gravity boots.  when turned on (by typing /boots in the console) the player will encounter decreased gravity.  Typing /boots again in the console will disable the boots.
+g_antiGravityBoots_amount (default=2)			<--	The number of anti-gravity boots each player has.  If set to zero, each player will have an infinite number of anti-gravity boots, and each anti-gravity boot will not have a time limit, so the player will be forced to type /boots twice, once to turn them on and once to turn them off.
+g_antiGravityBoots_duration (default=30)		<--	The length of time, in seconds, that anti-gravity boots will last.  The variable is not used if g_antiGravityBoots_amount is set to 0.
+g_antiGravityBoots_percent (default=0.30)		<--	The percent of normal gravity that the player will experience when using boots.  For example, when set to 0.20, the player will experience only 20% of normal gravity.
+g_allowVote (default=1)					<--	The number of votes each player will be able to call per map.  Each player is always restricted to voting once per callvote, and this variable controls the number of callvotes each player can call per map.
+g_allowVote_frequency (default=60)			<--	The number of seconds that must pass between votes being called by a player.
+g_allowVote_*						<--	Set of allowed commands that can be voted upon.  For instance, if you want players to be allowed use the map command, do a 'set g_allowvote_map 1' at the console or in your config.  If you want players to be allowed to mute someone, then do a 'set g_allowvote_mute 1' at the console.  Create as many g_allowvote_* variables you need for your players to callvote on anything they want, although remember that anyone can vote so beware of players trying to fool around.
+g_allowVote_help (default="")				<--	Text printed to the console if a person types /callvote into their console for determining what commands are available to callvote on.  This text is prefixed with "Available vote commands are: ".
+g_allowVote_help_* (default="")				<--	Text printed to the console if a person types /callvote {command} ? (where {command} is g_allowVote_*) into their console for determining help with commands that are available to callvote on.
+g_allowvote_passingValue (default=0.5)			<--	The precentage of players, plus one, that must vote yes to a vote in order for that vote to be passed.  For instance, if you have 16 people in your server and this value is set to 0.75, then 13 people must vote yes for a vote to pass.  Valid values are between 0 and 1.
+g_allowvote_failonTimeout (default=1)			<--	Boolean to control what happens to votes that are not passed after the 30 second timeout for votes has passed.  If set to 1, then the vote will always fail.  If set to 0, then the vote will pass or fail based on the number of people who have voted rather than the number of people in the arena.
+g_ctf_returnFlag (default=0)				<--	Boolean to force players to return their flags back to their own bases rather than having the flags being returned automatically.
+pmove_fixed (default=0)					<--	Boolean to disable framerate dependant physics.  Turning this on (1) will allow all players to jump the same distance regardless of their framerate on their client.
+pmove_msec (default=8)					<--	Value to control the physics calculated by the server for each player.  A value of 8 (1000 milliseconds / 8) will equal a simulated 125 frames/sec physics calculation for each player.
+pmove_accurate (default=0)				<--	Boolean to disable framerate dependant physics.  Turning this on (1) will allow all players to jump the same distance regardless of their framerate on their client.  This is very similar to pmove_fixed, but better at the cost of slightly more bandwidth used by players.  It is better than pmove_fixed.  If you turn pmove_accurate on, then turn pmove_fixed off.
+g_teamtourney (default=0)				<--	TeamTourney is a variation on normal 1v1 tournament where teams of 1 to any number can play against other team (2v2, 3v3, etc).  When a team loses, they are pushed to spectators and the spectators become the players, much like normal 1v1 works.  Wins and losses are also tracked with g_calcstats.  If g_gametype is set to TDM or CTF modes, then setting this value to something greater than 0 will represent the number of players that can be on each team.  For instance, if you set it to be 2 then you are creating a 2v2 game.
+g_teamTourney_minPlayers (default=1)			<--	When TeamTourney is on, this number represents the minimum number of players a team must have for the game to start.  If at any time a team's player count goes below this number then the game will go to warmup until another person joins.
+g_respawnDelay (default=1700)				<--	The amount of time, in millisecons, that you have to wait before you can force yourself to respawn after you die or melt.
+g_gameMod_followTeamOnly (default=0)			<--	Boolean to control in freezetag or lastmanstanding whether you can follow anyone or your teammates only.
+g_timeout_teamReset (default=1)				<--	Boolean to reset (melt or spawn) all teammates when a timeout is called.  If set to 0, teammates frozen (if g_gameMod = 2) will not be melted when a timeout is called.
+g_teamForceBalance (default=0)				<--	If set to greater than 0, it will for the teams to be balanced as players connect and change teams.  The value of this variable is equal to the maximum allowed spread between teams.  For instance, if you have it set to 1, players will be able to make the teams 2v3 or 3v4, bu not 2v4, since 2v4 has a spread of 2.
+g_linking (default=1)					<--	Boolean to prevent prediction erros from occuring between where the server says players are and where the client says they are.  Set to 1 to enable this new, more accurate behavior.
+g_duplicateIPBlock (default=0)				<--	Number of IP players allowed to be in the game with the same IP address.  Example: If you want to block more than 2 people from connecting to your server at once then set this to 2.  Setting this to 0 will disable this functionality.
+g_floodprotect (default=1)				<--	Prevents the server (and/or a bad admin or malicious player) from using the server to flood other players.
+g_antiCamper_action (default=1)				<--	Variable to control what happens when a player camps in a specific spot too long
+								1 = Death
+								2 = Teleported to random location
+g_timeout_roundTimeout (default=0)			<--	The amount of time, in seconds, that after a round start in freezetag or lastmanstanding that players can call a timeout.  For instance, if g_timeout_roundTime is set to 5 and the round starts at time=0, players have until time=5 to call a timeout.  After that the players have to wait until the next round to call a timeout.  Set this to 0 to allow players to call a timeout whenever they desire.
+g_timeout_timeinDelay (default=3)			<--	The amount of time, in seconds, that occurs between when a player signals timein and when the game starts again (when the timeout ends).
+g_authenticateClient_strict (default=1)			<--	Value to force all clients using the NoGhost client mod into a strict settings mode.  This forces the client to top and bottom cap certain variables that can be used to cheat or gain an unfair advantage; this will not affect normal settings, it only affects those variables that can be used to gain an unfair advantage.  Recommended on, especially if g_authenticateClient is on.
+								1 = turn on strict mode
+								2 = turn on strict mode in addition to stricter client side anticheat codes
+g_authenticateClient_versionLimiter (default=varies)	<--	Value to control the lowest build of the NoGhost client mod that players are allowed to play with.  Updates to the client mod come out periodically, and this allows a server admin to force all the players to get at least a certain build level before they play.
+g_promode (default=0)					<--	Boolean to enable ProMode physics and game play.  This requires more memory to run, so server operators might need to adjust their com_hunkmegs a little higher.  Note: due to the memory requirements of this mode, this variable can only be set _before_ the first map is started when the server is brought up.  In short, if you want to use this, do "set g_promode 1" at the top of your config and then start your map.
+g_freezetag_chatMeltTime (default=5000)			<--	The amount of time, in milliseconds, a person will auto-melt in freezetag when they are shot while chatting.  0 will disable this feature entirely.  This variable should be set higher than 200 for proper function.
+g_antiCamper_ignoreChat (default=1)			<--	Boolean to force the anticamper codes to ignore a person chatting since they are not camping.  Setting this to 0 will allow the anticamper codes to kill a camper
+g_suddendeath_time (default=0)				<--	The additional time, in minutes, the match will be extended by if time runs out while the score is tied.  The timelimit will be extended by this amount, and will override the normal sudden death behavior of "next point wins"
+g_pause_teleport (default=0)				<--	Boolean to control whether or not players should teleport after a server admin or ref unpauses a game 
+g_knockback_type (default=15)				<--	Variable to control the type of knockback players feel.  Add up the values you want to use and set g_knockback_type to it.
+								1 = knockback affects alive opponents
+								2 = affects alive team mates
+								4 = affects dead/frozen opponents
+								8 = affects dead/frozen team mates
+g_timeout_pause (default=0)				<--	Boolean to enable or disable player pausing while a timeout has been called.  If you keep this at 0 players can move around during a timeout.  Setting this to 1 makes players frozen during the timeout.
+g_timeout_teleport (default=1)				<--	Boolean to teleport everyone after a timeout is over.  Turning this off will cause a timeout to simply end.
+g_freezetag_startFrozen (default=0)			<--	Boolean to force all players who join a server/game mid-point in a freezetag game to wait until the point ends before spawning.  Also discourages people from reconnecting when they die.
+g_duplicateIPBlock_options (default=0)			<--	Variable to control how to deal with a scenario where more than one player is connecting from a single ip.
+								0 = do nothing
+								1 = kick the person who is currently in the server playing with the same ip
+								2 = kickban the person for 5 games who is currently in the server playing with the same ip
+g_consoleMessage (default=0)				<--	Set this value to be how often (in seconds) you want messages to be sent to all players in the game.  Enabling this feature will take messages, line by line, from the g_consoleMessage_file and print them to each player's console every g_consoleMessage number of seconds.  This is handy for spamming your clan's website, etc.
+g_consoleMessage_file (default=consolemessage.txt)	<--	The file containing the messages you want to be printed on the console.  One message per line.  Create this file where you have the noghost pk3 file.
+g_antiCamper_scorePenalty (default=0)			<--	The amount of points a camper will lose, per second, when they are caught camping based on the g_antiCamper codes
+
+
+new/improved server commands...
+Note the command structure:
+[] = means a required variable
+{} = means an optional variable
+
+banning				<--	This functionality has been redone for more granularity and to work better with g_autoBan.  In the stock quake engine, you would add ip addresses to g_banIPs and they would be banned forever.  Now, when you ban someone, you can tell the quake engine how long you want the player banned for.  This new functionality has caused some backward compatibilities, so if you have a current list of IP addresses that you want banned forever, then make a note of them, clear the g_banips variable, then add them back in using the addip command.  Note: If you want a person banned forever, set their how_many_games_you_want_them_banned_for to be -1.
+		addip [player's_IP_address] [how_many_games_you_want_them_banned_for]
+		removeip [player's_IP_address] {how_many_games_you_want_them_banned_for}
+		kickban [player's_name_or_slot_number] [how_many_games_you_want_them_banned_for]
+
+banning to an external file	<--	This functionality allows you to use a text file to hold a list of IP addresses that are banned.
+		banfile_addip [player's_IP_address or player's_IP_prefix/network_mask] [how_many_games_you_want_them_banned_for]
+		banfile_removeip [player's_IP_address] {how_many_games_you_want_them_banned_for}
+		banfile_kickban [player's_name_or_slot_number] [how_many_games_you_want_them_banned_for]
+		banfile_listip		<-- lists all the ip addresses in the banfile
+
+muting				<--	This function has been added to mute certain players.  When a player disconnects or the map restarts, that client slot is automatically unmuted.
+		mute [player's_name_or_slot_number]
+		unmute [player's_name_or_slot_number]
+
+telling as the console		<--	This function gives the admin the ability to talk to certain players, rather than to everyone in the arena, from the console.  Acts the same as the \tell command inside the game.
+		tell [player's_name_or_slot_number] [message]
+
+pausing the game		<--	This function gives the admin the ability to pause the entire game.  All players will be unable to shoot, move, or be affected by gravity.
+		pause
+		unpause
+
+referees			<--	This function allows the admin to delegate control of certain commands to trusted players.  The setref command is used to turn on the referee abilities and the ref command is used to issue commands to the quake server.
+		setref [referee_password]
+		ref [command] {command_arguments}
+		ref playerlist						prints out a list of all players.
+		ref hideref						hides the referee.  this command must be allowed by setting g_referee_allowedcmd_hideref to 1.
+		ref unhideref						unhides the referee.  this command must be allowed by setting g_referee_allowedcmd_unhideref to 1.
+		ref vote						referee voting.  A referee can force a vote to pass or fail by doing a /ref vote pass or /ref vote fail.
+		ref warn [player's_name_or_slot_number] [message]	warns a player.  this command must be allowed by setting g_referee_allowedcmd_unhideref to 1.
+	other ref commands, like mute, kick, or kickban for instance, need to be authorized by the server admin for use by refs.  To do this, set the appropriate variable.  For instance, to allow a ref to mute someone, set g_referee_allowedcmd_mute to 1.  Continue setting these variables until you have given your refs the appropriate commands to admin the server correctly.  All console commands and rcon commands are valid ref commands, just set the appropriate variable.
+
+voting				<--	This function allows the admin to allow only certain commands to be voted upon.
+		g_allowVote_[variable name] 1
+	other ref commands, like mute, kick, or kickban for instance, need to be authorized by the server admin for use by refs.  To do this, set the appropriate variable.  For instance, to allow a ref to mute someone, set g_referee_allowedcmd_mute to 1.  Continue setting these variables until you have given your refs the appropriate commands to admin the server correctly.  All console commands and rcon commands are valid ref commands, just set the appropriate variable.
+
+
+forceteam			<--	This function forces a player onto a team.  Abbreviations for the team variable in the command can be used, for instance to force player 2 onto the red team, use: forceteam 2 r.  You can use the letter b for the blue team and s for spectator team.
+		forceteam [player's_name_or_slot number] [team]
+
+
+serverstatus			<--	This function dislays information about the people playing on the server, similar to using the 'status' command from the console.  This is for console or rcon use only.
+		serverstatus
+
+replacing map items		<--	This function allows you to replace certain items on the map, like weapons or health.
+		set replace_[item_type]_[item_name] [item_type]_[item_name]
+	See the items.txt file that is in the configs directory of the NoGhost zip file.  It contains all the appropriate item names and item types required.  For instance, to replace the railgun with the rocket launcher in your arena, you'd type set replace_weapon_railgun weapon_rocketlauncher in your console..  Also for example, to replace the mega health with the quad damage, you'd type set replace_item_health_mega item_quad in your console.  Continue setting these variables until you have replaced all the items that you desire.
+
+team locking			<--	This function allows you to lock a team so that other people cannot join it
+		lockteam						prints out a list of which teams are locked and unlocked
+		lockteam [team]						locks a team.  [team] can be red or blue, or can be r or b.
+		unlockteam [team]					unlocks a team.  [team] can be red or blue, or can r or b.
+
+ready/unready			<--	These two commands, when used with g_doReady 1 force the game to only start when all players signal they are ready.
