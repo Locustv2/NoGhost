@@ -7,11 +7,11 @@ services:
     build:
       context: .
       args:
-        ARG HOSTNAME: locustv2.com
-        ARG WEB_PORT: 8080
-        ARG GAME_PORT: 27960
-        ARG DEDICATED: 2
-        ARG CONFIG: lms.cfg
+        HOSTNAME: locustv2.com
+        WEB_PORT: 8080
+        GAME_PORT: 27960
+        DEDICATED: 2
+        CONFIG: lms.cfg
     image: noghost:lms
     ports:
       - 8080:80
