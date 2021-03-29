@@ -21,6 +21,6 @@ RUN yes | sh installer.sh
 RUN echo '<Directory /var/www/html>\nHeader set Access-Control-Allow-Origin "*"\n</Directory>' >> /etc/apache2/sites-enabled/000-default.conf
 
 WORKDIR /home/quake/quakejs
-COPY **/*.cfg ./base/NoGhost
+COPY **/*.cfg ./base/NoGhost/
 
 CMD service apache2 start && node build/ioq3ded.js +set net_port 27960 +set fs_game NoGhost +set fs_cdn 'locustv2.com:8080' +set dedicated 2 +exec server.cfg
