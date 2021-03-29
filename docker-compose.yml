@@ -4,27 +4,15 @@ version: '3.3'
 
 services:
   lms:
-    build: .
+    build:
+      context: .
+      args:
+        ARG HOSTNAME: locustv2.com
+        ARG WEB_PORT: 8080
+        ARG GAME_PORT: 27960
+        ARG DEDICATED: 2
+        ARG CONFIG: lms.cfg
     image: noghost:lms
-    expose:
-      - 80
-      - 27960
-    command: sh -c "service apache2 start && node build/ioq3ded.js +set net_port 27960 +set fs_game NoGhost +set fs_cdn 'locustv2.com:8080' +set dedicated 2 +exec last-man-railing.cfg"
-
-  ctf:
-    build: .
-    image: noghost:ctf
-    expose:
-      - 27960
-    command: sh -c "service apache2 start && node build/ioq3ded.js +set net_port 27960 +set fs_game NoGhost +set fs_cdn 'locustv2.com:8080' +set dedicated 2 +exec server.cfg"
-
-  nginx:
-    restart: always
-    domainname: local.games
-    image: nginx:latest
     ports:
-      - "8080:80"
-      - "27960:27960"
-      - "27970:27970"
-    volumes:
-      - ./nginx.conf:/etc/nginx/nginx.conf:ro
+      - 8080:80
+      - 27960:27960
