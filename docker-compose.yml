@@ -20,7 +20,7 @@ services:
 
   freeze:
     build: .
-    image: noghost:ctf
+    image: noghost:freeze
     expose:
       - 27962
     command: sh -c "service apache2 start && node build/ioq3ded.js +set net_port 27962 +set fs_game NoGhost +set fs_cdn 'locustv2.com:8080' +set dedicated 2 +exec freeze-death-match.cfg"
