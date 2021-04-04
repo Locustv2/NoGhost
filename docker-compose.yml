@@ -30,7 +30,7 @@ services:
     image: noghost:ctf2
     expose:
       - 27961
-    command: sh -c "service apache2 start && node build/ioq3ded.js +set net_port 27963 +set fs_game NoGhostX +set fs_cdn 'locustv2.com:8080' +set dedicated 2 +exec capture-the-flag-demo.cfg"
+    command: sh -c "service apache2 start && node build/ioq3ded.js +set net_port 27963 +set fs_game NoGhostX +set fs_cdn 'locustv2.com:8080' +set dedicated 2 +exec capture-the-flag-x.cfg"
 
   nginx:
     restart: always
