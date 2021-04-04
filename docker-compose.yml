@@ -10,6 +10,8 @@ services:
       - 80
       - 27960
     command: sh -c "service apache2 start && node build/ioq3ded.js +set net_port 27960 +set fs_game NoGhostX +set fs_cdn 'locustv2.com:8080' +set dedicated 2 +exec last-man-railing.cfg"
+    volumes:
+      - ./customcfg:/home/quake/quakejs/base/NoGhostX
 
   ctf:
     build: .
@@ -17,6 +19,8 @@ services:
     expose:
       - 27961
     command: sh -c "service apache2 start && node build/ioq3ded.js +set net_port 27961 +set fs_game NoGhostX +set fs_cdn 'locustv2.com:8080' +set dedicated 2 +exec capture-the-flag-demo.cfg"
+    volumes:
+      - ./customcfg:/home/quake/quakejs/base/NoGhostX
 
   freeze:
     build: .
@@ -24,6 +28,8 @@ services:
     expose:
       - 27962
     command: sh -c "service apache2 start && node build/ioq3ded.js +set net_port 27962 +set fs_game NoGhostX +set fs_cdn 'locustv2.com:8080' +set dedicated 2 +exec freeze-death-match.cfg"
+    volumes:
+      - ./customcfg:/home/quake/quakejs/base/NoGhostX
 
   ctf2:
     build: .
@@ -31,6 +37,8 @@ services:
     expose:
       - 27961
     command: sh -c "service apache2 start && node build/ioq3ded.js +set net_port 27963 +set fs_game NoGhostX +set fs_cdn 'locustv2.com:8080' +set dedicated 2 +exec capture-the-flag-x.cfg"
+    volumes:
+      - ./customcfg:/home/quake/quakejs/base/NoGhostX
 
   nginx:
     restart: always
@@ -44,3 +52,13 @@ services:
       - "27963:27963"
     volumes:
       - ./nginx.conf:/etc/nginx/nginx.conf:ro
+
+  test:
+    build: .
+    image: noghost:test
+    ports:
+      - 27960:27960
+      - 80:80
+    command: sh -c "service apache2 start && node build/ioq3ded.js +set net_port 27960 +set fs_game NoGhostX +set fs_cdn '127.0.0.1:80' +set dedicated 2 +exec capture-the-flag-x.cfg"
+    volumes:
+      - ./customcfg:/home/quake/quakejs/base/NoGhostX
