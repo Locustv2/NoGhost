@@ -9,36 +9,40 @@ services:
     expose:
       - 80
       - 27960
-    command: sh -c "service apache2 start && node build/ioq3ded.js +set net_port 27960 +set fs_game NoGhostX +set fs_cdn 'locustv2.com:8080' +set dedicated 2 +exec last-man-railing.cfg"
+    command: sh -c "service apache2 start && node build/ioq3ded.js +set net_port 27960 +set fs_game NoGhostX +set fs_cdn 'locustv2.com:8080' +set dedicated 2 +exec noghost.cfg"
     volumes:
-      - ./customcfg:/home/quake/quakejs/base/NoGhostX
+      - ./customcfg/last-man-railing.cfg:/home/quake/quakejs/base/NoGhostX/noghost.cfg
+      - ./customcfg/logs:/home/quake/quakejs/base/NoGhostX/logs
 
   ctf:
     build: .
     image: noghost:ctf
     expose:
       - 27961
-    command: sh -c "service apache2 start && node build/ioq3ded.js +set net_port 27961 +set fs_game NoGhostX +set fs_cdn 'locustv2.com:8080' +set dedicated 2 +exec capture-the-flag-demo.cfg"
+    command: sh -c "service apache2 start && node build/ioq3ded.js +set net_port 27961 +set fs_game NoGhostX +set fs_cdn 'locustv2.com:8080' +set dedicated 2 +exec noghost.cfg"
     volumes:
-      - ./customcfg:/home/quake/quakejs/base/NoGhostX
+      - ./customcfg/capture-the-flag-demo.cfg:/home/quake/quakejs/base/NoGhostX/noghost.cfg
+      - ./customcfg/logs:/home/quake/quakejs/base/NoGhostX/logs
 
   freeze:
     build: .
     image: noghost:freeze
     expose:
       - 27962
-    command: sh -c "service apache2 start && node build/ioq3ded.js +set net_port 27962 +set fs_game NoGhostX +set fs_cdn 'locustv2.com:8080' +set dedicated 2 +exec freeze-death-match.cfg"
+    command: sh -c "service apache2 start && node build/ioq3ded.js +set net_port 27962 +set fs_game NoGhostX +set fs_cdn 'locustv2.com:8080' +set dedicated 2 +exec noghost.cfg"
     volumes:
-      - ./customcfg:/home/quake/quakejs/base/NoGhostX
+      - ./customcfg/freeze-death-match.cfg:/home/quake/quakejs/base/NoGhostX/noghost.cfg
+      - ./customcfg/logs:/home/quake/quakejs/base/NoGhostX/logs
 
   ctf2:
     build: .
     image: noghost:ctf2
     expose:
       - 27961
-    command: sh -c "service apache2 start && node build/ioq3ded.js +set net_port 27963 +set fs_game NoGhostX +set fs_cdn 'locustv2.com:8080' +set dedicated 2 +exec capture-the-flag-x.cfg"
+    command: sh -c "service apache2 start && node build/ioq3ded.js +set net_port 27963 +set fs_game NoGhostX +set fs_cdn 'locustv2.com:8080' +set dedicated 2 +exec noghost.cfg"
     volumes:
-      - ./customcfg:/home/quake/quakejs/base/NoGhostX
+      - ./customcfg/capture-the-flag-x.cfg:/home/quake/quakejs/base/NoGhostX/noghost.cfg
+      - ./customcfg/logs:/home/quake/quakejs/base/NoGhostX/logs
 
   nginx:
     restart: always
@@ -52,17 +56,6 @@ services:
       - "27963:27963"
     volumes:
       - ./nginx.conf:/etc/nginx/nginx.conf:ro
-
-  test:
-    build: .
-    image: noghost:test
-    ports:
-      - 27960:27960
-      - 80:80
-    command: sh -c "service apache2 start && node build/ioq3ded.js +set net_port 27960 +set fs_game NoGhostX +set fs_cdn '127.0.0.1:80' +set dedicated 2 +exec capture-the-flag-x.cfg"
-    volumes:
-      - ./customcfg:/home/quake/quakejs/base/NoGhostX
-
 
   db:
     # image: mysql:8.0.23
@@ -85,7 +78,7 @@ services:
       # - /path/to/your/games.log:/vsp/games.log
       # - /path/to/your/server.gif:/vsp/pub/images/server.gif
       # - /path/to/your/logo.gif:/vsp/pub/images/logo.gif
-      - ./customcfg/lms.log:/vsp/games.log
+      - ./customcfg/logs/lms.log:/vsp/games.log
     ports:
       - 27970:80
       # supervisor web gui would be available on port 9001
