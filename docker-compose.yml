@@ -62,3 +62,48 @@ services:
     command: sh -c "service apache2 start && node build/ioq3ded.js +set net_port 27960 +set fs_game NoGhostX +set fs_cdn '127.0.0.1:80' +set dedicated 2 +exec capture-the-flag-x.cfg"
     volumes:
       - ./customcfg:/home/quake/quakejs/base/NoGhostX
+
+
+  db:
+    # image: mysql:8.0.23
+    image: mariadb:10.5.9
+    restart: always
+    environment:
+      TZ: Europe/Berlin
+      MYSQL_ROOT_PASSWORD: pass
+      MYSQL_DATABASE: vsp
+      MYSQL_USER: devuser
+      MYSQL_PASSWORD: devpass
+    ports:
+      - "3306:3306"
+  stats:
+    image: evilru/quake3-vsp-stats:latest
+    restart: always
+    depends_on:
+      - db
+    volumes:
+      # - /path/to/your/games.log:/vsp/games.log
+      # - /path/to/your/server.gif:/vsp/pub/images/server.gif
+      # - /path/to/your/logo.gif:/vsp/pub/images/logo.gif
+      - ./customcfg/lms.log:/vsp/games.log
+    ports:
+      - 27970:80
+      # supervisor web gui would be available on port 9001
+      - 9001:9001
+    environment:
+      TZ: Europe/Berlin
+      # VSP_WEB_PASSWORD: vspweb
+      DB_HOSTNAME: db
+      DB_NAME: vsp
+      DB_USERNAME: devuser
+      DB_PASSWORD: devpass
+      LOGTYPE: q3a
+      SERVER_TITLE: Last Man Railing
+      SERVER_NAME_IP: 34.91.145.88:27960
+      SERVER_GAME_MOD: NoGhostX
+      SERVER_ADMINS: ^1zed
+      WEB_SITE_ADDRESS: http://www.quakejs.com/play?connect%2034.91.145.88:27960
+      WEB_SITE_NAME: quakejs
+      DEFAULT_SKIN: xp
+      SERVER_QUOTE: Kill or be finished!
+      SERVER_EMAIL_IM: N/A
