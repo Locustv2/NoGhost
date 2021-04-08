@@ -38,7 +38,7 @@ services:
     build: .
     image: noghost:ctf2
     expose:
-      - 27961
+      - 27963
     command: sh -c "service apache2 start && node build/ioq3ded.js +set net_port 27963 +set fs_game NoGhostX +set fs_cdn 'locustv2.com:8080' +set dedicated 2 +exec noghost.cfg"
     volumes:
       - ./customcfg/capture-the-flag-x.cfg:/home/quake/quakejs/base/NoGhostX/noghost.cfg
