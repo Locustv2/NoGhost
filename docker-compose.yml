@@ -48,7 +48,7 @@ services:
     build: .
     image: baseq3:q3a
     expose:
-      - 27963
+      - 27964
     command: sh -c "service apache2 start && node build/ioq3ded.js +set net_port 27964 +set fs_game baseq3 +set fs_cdn 'locustv2.com:8080' +set dedicated 2 +exec q3a.config"
     volumes:
       - ./customcfg/q3a.config:/home/quake/quakejs/base/baseq3/q3a.config
