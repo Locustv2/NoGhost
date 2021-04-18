@@ -44,6 +44,16 @@ services:
       - ./customcfg/capture-the-flag-x.cfg:/home/quake/quakejs/base/NoGhostX/noghost.cfg
       - ./customcfg/logs:/home/quake/quakejs/base/NoGhostX/logs
 
+  q3a:
+    build: .
+    image: baseq3:q3a
+    expose:
+      - 27963
+    command: sh -c "service apache2 start && node build/ioq3ded.js +set net_port 27964 +set fs_game baseq3 +set fs_cdn 'locustv2.com:8080' +set dedicated 2 +exec q3a.config"
+    volumes:
+      - ./customcfg/q3a.config:/home/quake/quakejs/base/baseq3/q3a.config
+      - ./customcfg/logs:/home/quake/quakejs/base/baseq3/logs
+
   nginx:
     restart: always
     domainname: local.games
@@ -54,6 +64,7 @@ services:
       - "27961:27961"
       - "27962:27962"
       - "27963:27963"
+      - "27964:27964"
     volumes:
       - ./nginx.conf:/etc/nginx/nginx.conf:ro
 
